@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> </title>
+    </head>
+    <body>
+    <script>var dupa = new Object();
+        dupa = {lud1:{imie: "kuba", "nazwisko":"gladysz"},
+                "lud2":{"imie": "daniel", "nazwisko":"kukla"},
+                "lud3":{"imie": "szymon", "nazwisko":"warchol"}
+        };
+        var zmienna = "lud2";
+        dupa[zmienna].imie = "jerzy";
+        dupa.lud4 = {};
+        dupa.lud4.imie = "jezry";
+        dupa[0] = {imie:"bartek", nazwisko:"gladysz"};
+        
+        //dupa.lud4 = {imie:zmienna, nazwisko:"cosnazw"};
+        console.log(dupa[0].imie);
+       
+        
+        // if(dupa.lud4.hasOwnProperty("imie"))
+        // {console.log(Object.keys(dupa.lud1))}
+        // console.log(Object.getOwnPropertyNames(dupa));
+        
+        
+        
+        
+    </script>
+    
+
+    </body>
+</html>

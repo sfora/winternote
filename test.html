@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> </title>
+        <style type="text/css"> 
+        #stbut{background-color: lightgrey;}
+            #green{background-color: green;margin-right: 20px;}
+            
+        
+        
+        </style>
+    </head>
+    <body>
+    <script>
+     function dupa()
+        {
+        var pozadanie = new XMLHttpRequest();
+            pozadanie.open("GET","/moj.json",false);
+            pozadanie.send(null);
+            var obi = JSON.parse(pozadanie.responseText);
+            console.log(obi.lud0.imie);
+            obi.lud0.imie = "jakub";
+            pozadanie.open("POST", "/zapisz");
+            pozadanie.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            pozadanie.send(JSON.stringify(obi));
+        
+        
+        
+        }
+    </script>
+        <div id="stbut"><p id="paragraf">napis</p></div>
+   <button  onclick="dupa()">taki buton</button> 
+
+    </body>
+</html>
