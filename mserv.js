@@ -2,12 +2,13 @@
 var express = require('express');
 var app = express();
 var pliksys = require('fs');
+var connect = require('connect')
 
 
-  app.use(require('connect').bodyParser());
+ // app.use(connect.json());
 
 //app.use(express.urlencoded());
-//app.use(express.json());
+app.use(connect.json());
 // simple logger
 app.use(function (req, res, next) {
   console.log('%s %s', req.method, req.url);
