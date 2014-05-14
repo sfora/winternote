@@ -2,7 +2,7 @@ Notka.prototype.constructor = Notka;
 Przypominacz.prototype.constructor = Przypominacz;
 Kolor.prototype.constructor = Kolor;
 
-var memor = new Przypominacz();
+//var memor = new Przypominacz();
 //var x = setInterval(memor.updateall,2000); //tworzenie nowej instancji przypominacza i ustawienie funckcji do updatu
 
 function Notka(priorytet,prioryt,czaskreacji,czasdeadlinu,tytul,tresc,idnad,posx,posy,kolor,waga) {
@@ -111,24 +111,24 @@ Przypominacz.prototype.addMemo = function(priorytet){
 };
 
 Przypominacz.prototype.updateall=function(){
-  for (var x=0;x<memor.notatki.length;x++)
+  for (var x=0;x<this.notatki.length;x++)
   {
-      memor.notatki[x].calculatecol();
+      this.notatki[x].calculatecol();
       
   }
-    memor.calculateidy();
+    this.calculateidy();
       
 };
 
 Przypominacz.prototype.changepos = function()
 {
-  for (var counter = 0; counter < memor.notatki.length;counter++)  
+  for (var counter = 0; counter < this.notatki.length;counter++)  
   {
-       memor.notatki[counter].posx = (memor.notatki[counter].nowyid % 6)*250;
-        memor.notatki[counter].posy = Math.floor(memor.notatki[counter].nowyid/6)*180;
-  var elem = document.getElementById(memor.notatki[counter].idnad+"notka");
-  elem.style.left = memor.notatki[counter].posx + "px";
-  elem.style.top = memor.notatki[counter].posy + "px";
+       this.notatki[counter].posx = (this.notatki[counter].nowyid % 6)*250;
+        this.notatki[counter].posy = Math.floor(this.notatki[counter].nowyid/6)*180;
+  var elem = document.getElementById(this.notatki[counter].idnad+"notka");
+  elem.style.left = this.notatki[counter].posx + "px";
+  elem.style.top = this.notatki[counter].posy + "px";
   }
   
 };
@@ -137,24 +137,24 @@ Przypominacz.prototype.calculateidy = function()
 {
             var counter = 0;
             var cos = new Object();
-            for(var x=0; x<memor.notatki.length; x++)
+            for(var x=0; x<this.notatki.length; x++)
         {
-          if(!cos.hasOwnProperty([memor.notatki[x].waga]))
+          if(!cos.hasOwnProperty([this.notatki[x].waga]))
                 {   
-                    cos[memor.notatki[x].waga]=0;}
+                    cos[this.notatki[x].waga]=0;}
             else    
-                {cos[memor.notatki[x].waga]=cos[memor.notatki[x].waga]+1;}
+                {cos[this.notatki[x].waga]=cos[this.notatki[x].waga]+1;}
                 
-            for (var y=0; y<memor.notatki.length;y++)
+            for (var y=0; y<this.notatki.length;y++)
             {
                 if(x==y)
                 {continue;}
                 
-            if (memor.notatki[x].waga < memor.notatki[y].waga)
+            if (this.notatki[x].waga < this.notatki[y].waga)
             {counter=counter+1;}
             }
                 
-                memor.notatki[x].nowyid=counter+cos[memor.notatki[x].waga];
+                this.notatki[x].nowyid=counter+cos[this.notatki[x].waga];
                
                 counter=0;
         }
