@@ -177,7 +177,9 @@ var parelem = document.getElementById('glowny');
 parelem.appendChild(elem);
 var parag = document.createElement("p");
 parag.setAttribute("class", "parag");
+parag.setAttribute("id", elem.id+"c");
 parag.innerHTML = notka.tytul;
+parag.addEventListener('click',memor.killmemo,false);
 elem.appendChild(parag);   
 };
 
@@ -218,7 +220,11 @@ Notka.prototype.calculatepos = function(){
  
 };
 
-Notka.prototype.killmemo = function(){
+Przypominacz.prototype.killmemo = function(e){
+    var id = document.getElementById(e.target.id);
+    var idp = document.getElementById(id.parentNode.getAttribute('id'));
+    console.log(idp);
+    //idp.parentNode.removeChild(idp);
     
 };
 

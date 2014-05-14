@@ -24,11 +24,17 @@
 <body>
 <script>
     var memor = new Przypominacz();
+    window.onload = function(){
+    
+    var glownyel = document.getElementById("glowny");
+       // glownyel.addEventListener('click',function(e){if (e.target.className=="dupaclass"){console.log('mam cie'+e.target.className)}},false);
     var x = setInterval(memor.updateall.bind(memor),2000);
     var d = setInterval(memor.changepos.bind(memor),6000);
+    }
     //console.log(memor.notatki.length);
     //memor.notatki.push("dupa");
     //console.log(memor.notatki.length + " puszniete");
+    
     
 </script>
 <div id="glowny"></div>
