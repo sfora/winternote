@@ -2,9 +2,33 @@
 <html>
     <head>
         <title> </title>
+    <style>
+        #pierwszy {position:absolute; top:-10px; left:-40px;background-color:blue;transition: left 0.5s ease-out 0.2s, top 0.5s ease-out 0.2s;}
+        #drugi  {position:absolute; top:-10px; left:1500px; background-color:red;transition: left 0.5s ease-out 0.2s, top 0.5s ease-out 0.2s;}
+        #bodyid {overflow-x:hidden;}
+        
+    </style>
+        
     </head>
-    <body>
+    <body id=bodyid>
+    <div id=pierwszy><p>cos</p></div>
+    <div id=drugi><p>cos2</p></div>
+    <button onclick=wjedz()>wjedz</button>
 <script>
+
+
+
+    function wjedz()
+    {
+        var d = document.getElementById('pierwszy');
+        var e = document.getElementById('drugi');
+        d.style.top = "100px";
+        d.style.left = "480px";
+        e.style.top = "100px";
+        e.style.left = "500px";
+        
+    }
+    
     function Test(string)
     {
         this.str = string;
