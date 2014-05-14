@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> </title>
+    </head>
+    <body>
+<script>
+    function Test(string)
+    {
+        this.str = string;
+  this.tabe = [];
+        
+        
+        
+        
+        }
+    
+    
+   Test.prototype.constructor = Test; 
+   var ten = new Test("kuba");
+   ten.tabe[1]=7;
+   
+  console.log(ten.tabe[0]);
+   function zmien(that)
+   {for (var c=0; c<11;c++)
+   {
+       
+       that.tabe[c]=c;
+   }
+   
+   };
+   
+   var f = setInterval(zmien(ten),6000); 
+   
+   console.log(ten.tabe[7]); 
+    
+    
+    
+</script>
+    </body>
+</html>
