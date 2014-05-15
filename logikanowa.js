@@ -5,7 +5,7 @@ Kolor.prototype.constructor = Kolor;
 //var memor = new Przypominacz();
 //var x = setInterval(memor.updateall,2000); //tworzenie nowej instancji przypominacza i ustawienie funckcji do updatu
 
-function Notka(priorytet,prioryt,czaskreacji,czasdeadlinu,tytul,tresc,idnad,posx,posy,kolor,waga) {
+function Notka(priorytet,prioryt,czaskreacji,czasdeadlinu,tytul,tresc,idnad,posx,posy,kolor,waga,visibleandused) {
 this.waga=waga; //waga, najwazniejsze okreslenie waznosci notki
 this.prioryt=prioryt; // 0,1 ale chyba dam 0,01 green, 0,5 yellow i 1 red, po to aby w kolko nie robic sprawdzania czy red czy green, trzeba sie zastanowic czy wogole potrzebne
 this.priorytet=priorytet;//red,green,yellow
@@ -19,6 +19,7 @@ this.idnad=idnad;
 this.posx=posx;
 this.posy=posy;
 this.kolor=kolor;
+this.visibleandused=visibleandused;
 //console.log("notkadone");
 //this.deadline=deadline;
 //this.tel=tel;
@@ -50,7 +51,7 @@ Przypominacz.prototype.addMemo = function(priorytet){
     var prioryt;
     var kolor = new Kolor();
     var datadead = new Date();
-    if (datadeadline=='')
+    if (datadeadline==='')
         {if(priorytet=='green')
             {czasdeadlinu=czaskreacji+2000;
             prioryt=0.01;}
@@ -105,7 +106,7 @@ Przypominacz.prototype.addMemo = function(priorytet){
     var idnad = this.notatki.length;
     var posx = (idnad % 6)*250;
     var posy = Math.floor(idnad/6)*180;
-    this.notatki.push(new Notka(priorytet,prioryt,czaskreacji,czasdeadlinu,tytul,tresc,idnad,posx,posy,kolor,waga));
+    this.notatki.push(new Notka(priorytet,prioryt,czaskreacji,czasdeadlinu,tytul,tresc,idnad,posx,posy,kolor,waga,true));
     //console.log(this.notatki[idnad].priorytet+","+this.notatki[idnad].prioryt+","+this.notatki[idnad].posx+","+this.notatki[idnad].waga);
     this.wyswietlMemo(this.notatki[idnad]);
 };
@@ -223,7 +224,7 @@ Notka.prototype.calculatepos = function(){
 Przypominacz.prototype.killmemo = function(e){
     var id = document.getElementById(e.target.id);
     var idp = document.getElementById(id.parentNode.getAttribute('id'));
-    console.log(idp);
+    console.log(idp.getAttribute('id'));
     //idp.parentNode.removeChild(idp);
     
 };
